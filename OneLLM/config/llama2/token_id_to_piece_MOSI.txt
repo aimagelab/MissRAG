@@ -1,0 +1,12 @@
+Token ID: 1129, Piece: po
+Token ID: 1039, Piece: si
+Token ID: 2034, Piece: ti
+Token ID: 345, Piece: ve
+Token ID: 484, Piece: ne
+Token ID: 3249, Piece: ga
+Token ID: 329, Piece: ut
+Token ID: 1705, Piece: ral
+
+Token ID: 6374, Piece: ▁positive
+Token ID: 21104, Piece: ▁neutral
+Token ID: 8178, Piece: ▁negative

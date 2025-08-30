@@ -1,0 +1,163 @@
+{
+  "t-sa": [
+    "Based on the the input text and given the class set [Positive, Neutral, Negative], what is the sentiment of this video?",
+    "Consider the input text and the class set [Positive, Neutral, Negative] to provide an answer to what is the sentiment of this video.",
+    "With the aid of the input text, given the class set [Positive, Neutral, Negative] what is the sentiment of this video?"
+  ],
+ "ti-shortqa": [
+  "Answer the following question with a short one-word answer based on the content of the given image, <QUESTION>",
+  "Use the image provided to answer the question with a short answer: <QUESTION>.",
+  "Based on the image, how would you one-word answer the question in short: <QUESTION>?",
+  "Analyze the picture and provide a brief answer to <QUESTION>.",
+  "Use the visual aid to respond to the question briefly: <QUESTION>.",
+  "Use the information presented in the image to shortly answer <QUESTION>.",
+  "Analyze the image and provide a brief response to <QUESTION>."
+ ],
+ "ti-normalqa": [
+   "Answer the following question based on the content of the given image, <QUESTION>",
+   "Use the image provided to answer the question: <QUESTION>.",
+   "Based on the image, how would you answer the question: <QUESTION>?",
+   "Analyze the picture and provide an answer to <QUESTION>.",
+   "Use the visual aid to respond to the question: <QUESTION>.",
+   "Use the information presented in the image to answer <QUESTION>.",
+   "Analyze the image and provide a response to <QUESTION>."
+  ],
+ "ti-cap": [
+  "Generate a brief sentence to describe the content of the image.",
+  "Write a single sentence that conveys what the image depicts.",
+  "Use your words to describe the content of the image in one sentence.",
+  "Summarize the image content in a single sentence.",
+  "Create a sentence that accurately represents what is shown in the image.",
+  "Use one sentence to describe the image content.",
+  "Craft a sentence that captures the essence of the image.",
+  "Describe the image in a concise sentence.",
+  "Write a sentence that encapsulates the content of the image.",
+  "Use your writing skills to summarize the image in one sentence.",
+  "Create a sentence that accurately portrays what is depicted in the image.",
+  "Use one sentence to convey the meaning of the image.",
+  "Write a sentence that captures the essence of what the image is showing.",
+  "Summarize the image content in a brief sentence.",
+  "Craft a sentence that accurately represents the content of the image."
+ ],
+  "v-sa": [
+    "Based on the information presented in the video and given the class set [Positive, Neutral, Negative], what is the sentiment of this video?",
+    "Analyze the video and given the class set [Positive, Neutral, Negative], provide an answer to what is the sentiment of this video.",
+    "With the aid of the given video, given the class set [Positive, Neutral, Negative] what is the sentiment of this video?"
+  ],
+   "tv-shortqa": [
+    "Based on the information presented in the video, provide a short answer to question <QUESTION>.",
+    "Analyze the video and provide an one-word answer to question <QUESTION>.",
+    "With the aid of the given video, what is your simple answer to <QUESTION>"
+  ],
+  "tv-sa": [
+    "Based on the information presented in the video and in the input text and given the class set [Positive, Neutral, Negative], what is the sentiment of this video?",
+    "Analyze the video and the input text and given the class set [Positive, Neutral, Negative], provide an answer to what is the sentiment of this video.",
+    "With the aid of the given video and the input text, given the class set [Positive, Neutral, Negative] what is the sentiment of this video?"
+  ],
+   "tv-shortqa-other": [
+    "Based on the content of the given video, answer the question in a short answer, <QUESTION>",
+    "From the video content, what would be your brief response to question <QUESTION>?",
+    "Using the video content, what is your brief answer to question <QUESTION>?",
+    "Using the video content, can you provide an short answer to <QUESTION>?",
+    "Based on the content of the video, what is your short response to <QUESTION>?",
+    "From the video, what would be your one-word answer to <QUESTION>?",
+    "Based on the video content, what is your short answer to <QUESTION>?",
+    "Using the content of the video, can you provide a brief answer to <QUESTION>?"
+  ],
+   "tv-cap": [
+    "Generate a concise description for this video.",
+    "Summarize the content of this video in a brief description.",
+    "Provide a short, yet informative description for this video.",
+    "Write a concise summary of the main points covered in this video.",
+    "Craft a brief, yet compelling description for this video.",
+    "Generate a short, attention-grabbing blurb for this video.",
+    "Give a brief overview of the information presented in this video.",
+    "Write a succinct description that captures the essence of this video.",
+    "Create a brief synopsis that accurately represents the content of this video.",
+    "Sum up the key takeaways from this video in a brief description.",
+    "Provide a concise, but comprehensive description for this video.",
+    "Write a short summary that effectively conveys the main message of this video.",
+    "Generate a brief, yet impactful description that entices viewers to watch this video.",
+    "Craft a compelling, yet concise description for this video that highlights its key features.",
+    "Summarize the most important information presented in this video in a brief description.",
+    "Write a brief, but informative description that accurately reflects the content of this video."
+   ],
+   "a-sa": [
+    "Given the class set [Positive, Neutral, Negative], listen to this audio to express what is the sentiment of this video",
+    "After listening to the audio, given the class set [Positive, Neutral, Negative] what is the sentiment of this video?",
+    "Use the audio and the class set [Positive, Neutral, Negative] to provide an answer to what is the sentiment of this video."
+   ],
+   "ta-cap": [
+    "Listen to this audio and summarize its content in one sentence.",
+    "After listening to the audio, write a concise summary of its main points.",
+    "Provide a one-sentence summary of the information presented in this audio.",
+    "Summarize the content of this audio in a brief, yet comprehensive sentence.",
+    "Write a succinct summary of the key takeaways from this audio.",
+    "Listen to the audio and then craft a brief, but informative summary of its content.",
+    "Generate a one-sentence synopsis that accurately represents the information presented in this audio.",
+    "Sum up the most important points covered in this audio in a single sentence.",
+    "Write a brief, but impactful summary of the content of this audio.",
+    "After listening to the audio, provide a concise description of its main message.",
+    "Craft a one-sentence summary that captures the essence of this audio.",
+    "Summarize the information presented in this audio in a clear and concise sentence.",
+    "Write a brief, yet comprehensive summary of the content of this audio.",
+    "After listening to the audio, generate a one-sentence overview of its main ideas.",
+    "Provide a succinct summary that accurately reflects the content of this audio.",
+    "Sum up the most important information presented in this audio in a single sentence."
+   ],
+   "ta-shortqa": [
+    "Listen to this audio and provide a short answer to question <QUESTION>.",
+    "After listening to the audio, what is your simple answer to <QUESTION>",
+    "Use the audio content to provide an one-word answer to question <QUESTION>."
+   ],
+   "ta-sa": [
+    "Given the class set [Positive, Neutral, Negative], listen to this audio and combine it with the input text to express what is the sentiment of this video",
+    "After listening to the audio and combining it with the input text, given the class set [Positive, Neutral, Negative] what is the sentiment of this video?",
+    "Use the audio and textual content and the class set [Positive, Neutral, Negative] to provide an answer to what is the sentiment of this video."
+   ],
+   "tva-cap": [
+    "Combining the audiovisual information of this video, generate a sentence to describe its content.",
+    "Using both sound and images, craft a sentence that captures the essence of what's happening in this video.",
+    "Can you summarize the contents of this video using a sentence that incorporates both the audio and the visuals?",
+    "Write a sentence that combines the information you see and hear in this video to describe what's going on.",
+    "Describe the content of this video by blending the audio and visual elements into a single sentence.",
+    "Synthesize the audio and visual data in this video to create a sentence that encapsulates its meaning.",
+    "How would you summarize the content of this video using a sentence that incorporates both the audio and visual information?",
+    "Create a sentence that combines the audio and visual cues in this video to give an accurate description of its content.",
+    "Craft a sentence that fuses the auditory and visual components of this video to convey its message.",
+    "Use the audio and visual information in this video to generate a sentence that accurately describes what's happening.",
+    "Can you summarize the content of this video in a sentence that incorporates both the audio and visual inputs?",
+    "Combine the audio and visual information in this video to create a sentence that captures its essence.",
+    "Write a sentence that blends the audio and visual data in this video to provide a succinct description of its content.",
+    "Describe the content of this video by integrating the audio and visual elements into a single sentence.",
+    "Synthesize the audio and visual components of this video to produce a sentence that conveys its meaning.",
+    "How would you describe the content of this video by combining the audio and visual information into a single sentence?",
+    "Provide a detailed description for the given video in one sentence"
+  ],
+  "tva-shortqa": [
+    "Based on the video and audio, could you provide a short answer to the question: <QUESTION>", 
+    "Utilizing the video and audio content, briefly respond to the question: <QUESTION>",
+    "Analyze the video and audio and give me a short answer about the question: <QUESTION>",
+    "<QUESTION> Answer the question using a single word or phrase"
+  ],
+  "av-sa": [
+    "Based on the video and audio and given the class set [Positive, Neutral, Negative], what is the sentiment of this video?", 
+    "Utilizing the video and audio and given the class set [Positive, Neutral, Negative], briefly respond what is the sentiment of this video",
+    "Analyze the video and audio and given the class set [Positive, Neutral, Negative] give me a short answer about what is the sentiment of this video"
+  ],
+  "tva-sa": [
+    "Based on the video, audio and input text and given the class set [Positive, Neutral, Negative], what is the sentiment of this video?",
+    "Utilizing the video, audio and textual content and given the class set [Positive, Neutral, Negative], briefly respond what is the sentiment of this video",
+    "Analyze the video, audio and input text and given the class set [Positive, Neutral, Negative] give me a short answer about what is the sentiment of this video"
+  ],
+  "tva-sa2": [
+    "Based on the video, audio and input text and given the class set [Positive, Negative], what is the sentiment of this video?", 
+    "Utilizing the video, audio and textual content and given the class set [Positive, Negative], briefly respond what is the sentiment of this video",
+    "Analyze the video, audio and input text and given the class set [Positive, Negative] give me a short answer about what is the sentiment of this video"
+  ],
+  "ti-cl": [
+    "Based on the image and its description and given the class set [<ClassList}>] what is the category of this image? Choose one class from the class set.", 
+    "Utilizing the image and its description content and given the class set [<ClassList}>], briefly respond what is the category of this image. Choose one class from the class set.",
+    "Analyze the image and its description and given the class set [<ClassList}>] give me a short answer about what is the category of this image. Choose one class from the class set."
+  ]
+}
