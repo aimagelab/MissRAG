@@ -69,7 +69,6 @@ OneLLM/slurm_out/
 OneLLM/slurm_templates/
 OneLLM/backup/
 OneLLM/*.pdf
-OneLLM/model/lib/
 OneLLM/model/__pycache__/
 OneLLM/model/LLM/__pycache__/
 OneLLM/data/finetune_dataset.py
