@@ -69,6 +69,10 @@ OneLLM/slurm_out/
 OneLLM/slurm_templates/
 OneLLM/backup/
 OneLLM/*.pdf
+OneLLM/model/lib/__pycache__
+OneLLM/model/lib/pointnet2/pointnet2.egg-info
+OneLLM/model/lib/pointnet2/dist
+OneLLM/model/lib/pointnet2/build
 OneLLM/model/__pycache__/
 OneLLM/model/LLM/__pycache__/
 OneLLM/data/finetune_dataset.py
