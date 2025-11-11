@@ -51,7 +51,7 @@ Additionally, our multimodal RAG framework is empowered with a modality-aware pr
 
 
 ## 🏛️ Models 
-We evaluate MissRAG on three on three publicly available MLLMs capable of handling audio, video and text modalities: 
+We evaluate MissRAG on three publicly available MLLMs capable of handling audio, video and text modalities: 
 | Model    | Size    |  Download    |    
 |----------|-------------|----------|
 | OneLLM   | 7B  | [link](https://huggingface.co/csuhan/OneLLM-7B/)
