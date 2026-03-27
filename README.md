@@ -14,7 +14,7 @@ This repository includes all materials necessary to reproduce our framework acro
 - [Overview](#-overview)
   - [Introduction](#introduction)
   - [Key Features](#key-features)
-  - [MissRAG Framework](#missrag-framework)
+  <!-- - [MissRAG Framework](#missrag-framework)-->
 - [Models](#%EF%B8%8F-models)
 - [Installation](#%EF%B8%8F-installation)
 - [Datasets](#%EF%B8%8F-datasets)
@@ -38,6 +38,7 @@ Additionally, our multimodal RAG framework is empowered with a modality-aware pr
 
 * **Effectively mitigate the missing modality problem with MLLMs**: MissRAG effectively mitigates the missing modality problem for MLLMs across a wide range of tasks involving audio-video, and audio-video-text data. 
 
+<!-- 
 ### MissRAG Framework
 <img src="figs/method_A.png" alt="Center" 
     style="display: block; width: 100vw; height: auto; margin: 0; padding: 0;">
@@ -48,7 +49,7 @@ Additionally, our multimodal RAG framework is empowered with a modality-aware pr
      style="display: block; width: 100vw; height: auto; margin: 0; padding: 0; margin-top: 40px;">
  <figcaption><em>Overview of our MissRAG framework with three modalities. (a) Creation of modality embeddings through a contrastive embedder. (b) Retrieval of the top-k most similar prototypes by computing similarity scores between the embeddings of available modalities (i.e. query) and the stored embeddings of the missing modality via dot product, then aggregated to obtain the missing modality representation. Dashed arrows indicate that the second modality may be unavailable.</em></figcaption>
 </figure>
-
+-->
 
 ## 🏛️ Models 
 We evaluate MissRAG on three publicly available MLLMs capable of handling audio, video and text modalities: 
