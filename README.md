@@ -55,7 +55,7 @@ We evaluate MissRAG on three publicly available MLLMs capable of handling audio,
 | Model    | Size    |  Download    |    
 |----------|-------------|----------|
 | OneLLM   | 7B  | [link](https://huggingface.co/csuhan/OneLLM-7B/)
-| ChatBridge  | 13B  | [link](https://github.com/joez17/ChatBridge?tab=readme-ov-file)      
+| ChatBridge  | 13B  | [link](https://github.com/joez17/ChatBridge)      
 | VideoLLaMA 2  | 7B  | [link](https://huggingface.co/DAMO-NLP-SG/VideoLLaMA2.1-7B-AV)   
 
 ## 🛠️ Installation
@@ -116,7 +116,7 @@ Specifically, run `answer_mapping/eval_music_avqa.py` script to evaluate Music A
 ## 📚 References
 * [ChatBridge: Bridging Modalities with Large Language Model as a Language Catalyst](https://github.com/joez17/ChatBridge)
 * [OneLLM: One Framework to Align All Modalities with Language](https://github.com/csuhan/onellm)
-* [VideoLLaMA 2: Advancing Spatial-Temporal Modeling and Audio Understanding in Video-LLMs](https://github.com/DAMO-NLP-SG/VideoLLaMA2/tree/audio_visual?tab=readme-ov-file)
+* [VideoLLaMA 2: Advancing Spatial-Temporal Modeling and Audio Understanding in Video-LLMs](https://github.com/DAMO-NLP-SG/VideoLLaMA2)
 * [ImageBind: One Embedding Space To Bind Them Al](https://github.com/facebookresearch/ImageBind)
 * [Microsoft COCO Caption Evaluation](https://github.com/tylin/coco-caption)
 

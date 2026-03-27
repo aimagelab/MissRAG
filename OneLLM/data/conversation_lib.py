@@ -175,12 +175,13 @@ class Conversation:
             "sep2": self.sep2,
         }
 
-    #Missing Prompt inside Combining Conversational Template
+    # Missing Prompt inside Combining Conversational Template
     def get_miss_prompt(self, modal: List[str], 
                         task_modals: List[str], 
                         use_text_modality:bool = False, 
                         use_table_modality:bool = False,
                         compensation_strategy:bool = True):
+
         status = "Input Modality Status: "
         #audio-video tasks
         if len(task_modals)==2 and 'video' in task_modals and 'audio' in task_modals:
@@ -244,6 +245,7 @@ class Conversation:
                 status += "Input text: Missing; "
             status = status[:-2] + '.'
             prompt = status + '\n\n'
+
             if compensation_strategy:
                 #one missing modality
                 if 'video' in modal and 'audio' in modal and not use_text_modality: #audio+video
@@ -286,6 +288,7 @@ class Conversation:
                 status += "Input text: Missing; "
             status = status[:-2] + '.'
             prompt = status + '\n\n'
+
             if compensation_strategy:
                 #one missing modality
                 if 'video' in modal and 'image' in modal and use_table_modality and not use_text_modality: #image+video+table
@@ -325,7 +328,7 @@ class Conversation:
                     raise NotImplementedError
         return prompt
 
-    #Missing Prompt inside Original Conversational Template
+    # Missing Prompt inside Original Conversational Template
     def get_miss_prompt2(self, modal: List[str], task_modals: List[str], use_text_modality: bool = False):
         status = "Input Modality Status: "
         #audio-video tasks
@@ -401,7 +404,7 @@ class Conversation:
                 raise NotImplementedError
         return prompt
     
-    #Missing Prompt inside the last Human Instruction
+    # Missing Prompt inside the last Human Instruction
     def get_miss_prompt_inside(self, prompt:str, modal: List[str], task_modals: List[str], use_text_modality:bool = False):
         status = "Input Modality Status: "
         prompt = prompt.lower()
@@ -429,7 +432,7 @@ class Conversation:
 
         return prompt_inside
     
-    #Prototipe Prompt inside Combining Conversational Template
+    # Prototipe Prompt inside Combining Conversational Template
     def get_prototipe_prompt(self, modal: List[str], task_modals: List[str], use_text_modality:bool = False, use_table_modality:bool = False, input_text: bool = False, input_table: bool = False):
         """
         use_text_modality: whether textual modality is present or not

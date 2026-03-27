@@ -193,12 +193,16 @@ if __name__ == "__main__":
         "--task_modals", nargs='+', type=str, default=['audio', 'video', 'text']
     )
     parser.add_argument(
-        "--use_text_modality", type=str2bool, nargs='?', const=True, default=False,
-                        help='Enable or disable the text input modality. Accepts true/false.'
+        "--use_text_modality",
+        action="store_true",
+        help="Enable text input modality."
     )
     parser.add_argument(
-        "--oneshot", type=str2bool, nargs='?', const=True, default=False,
-                        help='Enable or disable the text input modality. Accepts true/false.'
+        "--oneshot", 
+        action="store_true",
+        help=(
+            "Use one-shot generation mode. Instead of autoregressive decoding, the model predicts only a single next token among the allowed token list"
+        )
     )
     parser.add_argument(
         "--batch_size", type=int, default=6
@@ -216,14 +220,16 @@ if __name__ == "__main__":
         help='Template for the prompt'
     ) 
     parser.add_argument(
-        "--prompt_inside", type=bool, default=False
+        "--prompt_inside", action="store_true", help="PE inside last human instruction"
     )
     parser.add_argument(
-        "--debug", type=bool, default=False
+        "--debug", action="store_true",
     )
     parser.add_argument(
-        "--missing_prompt", type=bool, default=False
-    )  
+        "--missing_prompt",
+        action="store_true",
+        help="Use PE technique (missing prompt)."
+    ) 
     parser.add_argument(
         "--conversation_template", type=str, default="v1_audio_video_text", help="Conversation template to use"
     )

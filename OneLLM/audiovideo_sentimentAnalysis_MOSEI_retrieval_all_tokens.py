@@ -247,7 +247,9 @@ if __name__ == "__main__":
         help='Template for the prompt'
     ) 
     parser.add_argument(
-        "--prototipe_prompt", type=bool, default=False
+        "--prototipe_prompt", 
+        action="store_true", 
+        help="use PE technique (missing prompt)"
     )
     parser.add_argument(
         "--conversation_template", type=str, default="v1_audio_video_text", help="Conversation template to use"
@@ -255,9 +257,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--answer_path", type=str, default="/path/to/MissRAG/results/eval_sentimentAnalysis_MOSEI_retrieval.json", help="Path to save the answer"
     )
-    parser.add_argument("--debug", action='store_true', help="debug, don't use model but fake data")
     parser.add_argument(
-        "--use_text_modality", type=bool, default=False, help='Enable or disable the text input modality. Accepts true/false.'
+        "--debug", action="store_true",
+    )
+    parser.add_argument(
+        "--use_text_modality",
+        action="store_true",
+        help="Enable text input modality."
     )
     args = parser.parse_args()  
     

@@ -150,16 +150,19 @@ if __name__ == "__main__":
         "--batch_size", type=int, default=6
     )
     parser.add_argument(
-        "--prompt_inside", type=bool, default=False
+        "--prompt_inside", action="store_true", help="PE inside last human instruction"
     )
     parser.add_argument(
-        "--missing_prompt", type=bool, default=False
-    )
+        "--missing_prompt",
+        action="store_true",
+        help="Use PE technique (missing prompt)."
+    )   
     parser.add_argument(
-        "--compensation_strategy",  action='store_false',   # sets the value to False when the flag is used
-            dest='feature_enabled', # name of the variable
-            default=True,           # default value when the flag is not used
-            help='Disable the feature (enabled by default)'
+        "--compensation_strategy",  
+        action='store_false',   # sets the value to False when the flag is used
+        dest='feature_enabled', # name of the variable
+        default=True,           # default value when the flag is not used
+        help='Use PE technique with compensation strategy'
     )
     parser.add_argument(
         "--conversation_template", type=str, default="v1_audio_video", help="Conversation template to use"
@@ -176,6 +179,7 @@ if __name__ == "__main__":
     for k, v in args._get_kwargs():
         pad = ' '.join(['' for _ in range(25-len(k))])
         print(f"{k}:{pad} {v}", flush=True) 
+        
     mp.set_start_method("spawn")
     port = get_random_free_port()
     dist.init_process_group(

@@ -8,6 +8,7 @@ results_chat
 results_chatbridge
 results_heuristic/
 slurm_out/
+MissRAG_hugging_face/
 
 # ImageBind
 ImageBind/IB_embeddings/train/
@@ -44,8 +45,6 @@ ChatBridge/prototypes/data/
 ChatBridge/prototypes/data/check*
 
 ChatBridge/demo.py
-ChatBridge/LICENSE
-ChatBridge/LICENSE_Lavis.md
 ChatBridge/environment.yml
 ChatBridge/train.py
 
@@ -82,7 +81,6 @@ OneLLM/data/__pycache__/
 OneLLM/model/*_dev.py
 OneLLM/model/LLM/*_dev.py
 OneLLM/util/__pycache__/
-OneLLM/LICENSE_llama2
 
 OneLLM/*.sh
 OneLLM/engine_finetune.py

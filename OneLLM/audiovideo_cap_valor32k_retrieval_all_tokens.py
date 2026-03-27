@@ -216,7 +216,9 @@ if __name__ == "__main__":
         "--batch_size", type=int, default=6
     )
     parser.add_argument(
-        "--prototipe_prompt", type=bool, default=False
+        "--prototipe_prompt", 
+        action="store_true", 
+        help="use PE technique (missing prompt)"
     )
     parser.add_argument(
         "--prompt_template",

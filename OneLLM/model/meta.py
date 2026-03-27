@@ -587,6 +587,7 @@ class MetaModel(nn.Module):
         prev_pos = 0
         # for cur_pos in range(start_pos, total_len):
         logits = self.llma.forward_multimodal_inference_retrieve(tokens[:, prev_pos:start_pos], prev_pos, images if prev_pos == 0 else None, modal=modal, retrieved_tokens=retrieved_tokens, use_normal_attention=use_normal_attention)
+        
         if len(allowed_token_ids) > 0:
             logit_mask = torch.full_like(logits, -float('inf'))
             logit_mask[:, allowed_token_ids] = 0.0
@@ -597,7 +598,9 @@ class MetaModel(nn.Module):
             next_token = self.sample_top_p(probs, top_p)
         else:
             next_token = torch.argmax(logits, dim=-1)
+
         next_token = next_token.reshape(-1)
+        
         # only replace token if prompt has already been generated
         next_token = torch.where(
             input_text_mask[:, start_pos], tokens[:, start_pos], next_token

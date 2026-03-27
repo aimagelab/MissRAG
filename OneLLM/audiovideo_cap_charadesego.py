@@ -135,11 +135,13 @@ if __name__ == "__main__":
         "--batch_size", type=int, default=6
     )
     parser.add_argument(
-        "--prompt_inside", type=bool, default=False
+        "--prompt_inside", action="store_true", help="PE inside last human instruction"
     )
     parser.add_argument(
-        "--missing_prompt", type=bool, default=False
-    )
+        "--missing_prompt",
+        action="store_true",
+        help="Use PE technique (missing prompt)."
+    ) 
     parser.add_argument(
         "--prompt_template",
         type=str,

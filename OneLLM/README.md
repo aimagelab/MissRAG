@@ -112,7 +112,7 @@ python audiovideo_qa_music_avqa.py
   --task_modals video audio               # List of task modalities
   --answer_path <OUTPUT_PATH> \           # json file with the answers 
   --batch_size <BATCH_SIZE>  
-  --missing_prompt True                   # Boolean to use PE technique 
+  --missing_prompt                        # Flag to use PE technique 
   --prompt_template <PROMPT>              # Textual human prompt
 ```
 
@@ -144,7 +144,7 @@ python audiovideo_cap_valor32k.py
   --task_modals video audio \             # List of task modalities
   --answer_path <OUTPUT_PATH> \           # json file with the answers 
   --batch_size <BATCH_SIZE> \  
-  --missing_prompt True \                 # Boolean to use PE technique 
+  --missing_prompt                        # Flag to use PE technique 
   --prompt_template <PROMPT>              # Textual human prompt 
 ```
 
@@ -179,7 +179,7 @@ python audiovideo_cap_charadesego.py
   --task_modals video audio \             # List of task modalities
   --answer_path <OUTPUT_PATH> \           # json file with the answers 
   --batch_size <BATCH_SIZE> \ 
-  --missing_prompt True   \               # Boolean to use PE technique 
+  --missing_prompt                        # Flag to use PE technique  
   --prompt_template <PROMPT>              # Textual human prompt 
 ```
 
@@ -189,7 +189,7 @@ python audiovideo_sentimentAnalysis_MOSI_retrieval.py
   --pretrained_path <PATH> \              # Path to the checkpoint
   --root <PATH> \                         # Path to the dataset
   --modal video audio \                   # List of available modalities
-  --use_text_modality True \              # Boolean to use text modality
+  --use_text_modality \                   # Flag to use text modality
   --task_modals audio video \             # List of task modalities
   --train_modality_tokens_path <PATH> \   # Path to the extracted modality tokens
   --test_IB_embeddings_path \             # Path to the extracted ImageBind test embeddings
@@ -198,7 +198,7 @@ python audiovideo_sentimentAnalysis_MOSI_retrieval.py
   --answer_path <OUTPUT_PATH> \           # json file with the answers 
   --batch_size <BATCH_SIZE> \  
   --prototipe_prompt \                    # Flag to use PE technique 
-  --prompt_template <PROMPT>              # Textual human prompt 
+  --user_command_classification <PROMPT>  # Textual human prompt 
 ```
 
 Test without PR by running the following script:
@@ -208,11 +208,11 @@ python audiovideo_sentimentAnalysis_MOSI.py
   --root <PATH> \                         # Path to the audio/video files
   --modal video audio \                   # List of available modalities
   --task_modals video audio text \        # List of task modalities
-  --use_text_modality True \              # Boolean to use text modality
+  --use_text_modality \                   # Flag to use text modality
   --answer_path <OUTPUT_PATH> \           # json file with the answers 
   --batch_size <BATCH_SIZE> \  
-  --missing_prompt True \                 # Boolean to use PE technique 
-  --prompt_template <PROMPT>              # Textual human prompt given to the model  
+  --missing_prompt \                      # Flag to use PE technique 
+  --user_command_classification <PROMPT>  # Textual human prompt given to the model  
 ```
 
 #### MOSEI
@@ -221,7 +221,7 @@ python audiovideo_sentimentAnalysis_MOSEI_retrieval.py
   --pretrained_path <PATH> \              # Path to the checkpoint
   --root <PATH> \                         # Path to the dataset
   --modal video audio \                   # List of available modalities
-  --use_text_modality True \              # Boolean to use text modality
+  --use_text_modality \                   # Flag to use text modality
   --task_modals audio video \             # List of task modalities
   --train_modality_tokens_path <PATH> \   # Path to the extracted modality tokens
   --test_IB_embeddings_path \             # Path to the extracted ImageBind test embeddings
@@ -230,7 +230,7 @@ python audiovideo_sentimentAnalysis_MOSEI_retrieval.py
   --answer_path <OUTPUT_PATH> \           # json file with the answers 
   --batch_size <BATCH_SIZE> \  
   --prototipe_prompt \                    # Flag to use PE technique 
-  --prompt_template <PROMPT>              # Textual human prompt 
+  --user_command_classification <PROMPT>  # Textual human prompt 
 ```
 
 Test without PR by running the following script:
@@ -240,11 +240,11 @@ python audiovideo_sentimentAnalysis_MOSEI.py
   --root <PATH> \                         # Path to the audio/video files
   --modal video audio \                   # List of available modalities
   --task_modals video audio text \        # List of task modalities
-  --use_text_modality True \              # Boolean to use text modality
+  --use_text_modality \                   # Flag to use text modality
   --answer_path <OUTPUT_PATH> \           # json file with the answers 
   --batch_size <BATCH_SIZE> \  
-  --missing_prompt True \                 # Boolean to use PE technique 
-  --prompt_template <PROMPT>              # Textual human prompt given to the model  
+  --missing_prompt \                      # Flag to use PE technique 
+  --user_command_classification <PROMPT>  # Textual human prompt given to the model  
 ```
 
 ## MissRAG is Not Sensible to the Task
