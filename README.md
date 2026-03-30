@@ -2,13 +2,21 @@
     <img src="figs/logo_missrag.png" width="200" style="margin-bottom: 0.1;"/>
 <p>
 
-<h3 align="center"><a href="https://iris.unimore.it/handle/11380/1381191" style="color:#D2691E">
-MissRAG: Addressing the Missing Modality Challenge in Multimodal Large Language Models</a></h3>
+# MissRAG: Addressing the Missing Modality Challenge in Multimodal Large Language Models</a></h3>
+<div style='display:flex; gap: 0.25rem; '>
+<a href='https://huggingface.co/datasets/alessiasaporita/MissRAG'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Embeddings-blue'></a>
+<a href='https://iris.unimore.it/handle/11380/1381191'><img src='https://img.shields.io/badge/Paper-PDF-red'></a>
+</div>
 
 We release **MissRAG**, a novel multimodal Retrieval-Augmented Generation (RAG) framework developed to address the missing modality problem in Multimodal Large Language Models (MLLMs). MissRAG is capable of simultaneously handling three modalities and supports retrieval across all possible combinations of single and multiple input modalities. Additionally, the framework integrates modality-aware textual prompts that explicitly indicate missing inputs, thereby conditioning and guiding the generation process more effectively.
 
 This repository includes all materials necessary to reproduce our framework across five diverse datasets—Music AVQA for audio-visual question answering, Valor and CharadesEGO for audio-visual captioning, MOSI and MOSEI for multimodal sentiment analysis—on three publicly available models, namely [OneLLM](https://github.com/csuhan/OneLLM),
 [VideoLLaMA 2](https://github.com/DAMO-NLP-SG/VideoLLaMA2/tree/audio_visual), and [ChatBridge](https://github.com/joez17/ChatBridge).
+
+
+## 📰 News
+* **[2026.03.30]** 🚀🚀 Released modality pools and modality tokens on [Hugging Face](https://huggingface.co/datasets/alessiasaporita/MissRAG)
+
 
 ## 📑 Contents
 - [Overview](#-overview)
@@ -56,7 +64,7 @@ We evaluate MissRAG on three publicly available MLLMs capable of handling audio,
 | Model    | Size    |  Download    |    
 |----------|-------------|----------|
 | OneLLM   | 7B  | [link](https://huggingface.co/csuhan/OneLLM-7B/)
-| ChatBridge  | 13B  | [link](https://github.com/joez17/ChatBridge)      
+| ChatBridge  | 13B  | [link](https://github.com/CASIA-IVA-Lab/ChatBridge)      
 | VideoLLaMA 2  | 7B  | [link](https://huggingface.co/DAMO-NLP-SG/VideoLLaMA2.1-7B-AV)   
 
 ## 🛠️ Installation
@@ -71,6 +79,9 @@ conda create -n onellm python=3.9
 conda activate onellm
 cd OneLLM
 pip install -r requirements.txt
+# install pointnet
+cd MissRAG/OneLLM/model/lib/pointnet2
+python -m pip install . --no-build-isolation
 ```
 ```bash
 conda create -n chatbridge python=3.9 
@@ -94,28 +105,65 @@ pip install -r requirements.txt
 | Audio-video-text sentyment analysis | MOSI | [link](http://multicomp.cs.cmu.edu/resources/cmu-mosi-dataset/)
 | Audio-video-text sentyment analysis | MOSEI | [link](http://multicomp.cs.cmu.edu/resources/cmu-mosei-dataset/)
 
-
-
 ## ⚙️ Method
-### Creation of the Modality Poolings
-Create the pool of training-set-derived prototypes with [ImageBind](https://github.com/facebookresearch/ImageBind) as contrastive embedder. Please refer to the [Evaluation Guide](docs/Prototype_Guide.md) for more details about how to create the prototypes.  
+### 📦 Loading Released Modality Pools and Modality Tokens
+Due to size constraints on Hugging Face, the released modality pools and modality tokens are split into multiple `.h5` chunks (e.g., `train_tokens_000.h5`, `train_tokens_001.h5`, ...). Each chunk contains aligned embeddings for the following modalities:
+- `video`
+- `audio`
+- `text` (if available)
+- `ids`
 
-### Retrieval-Augmented Generation (RAG) system + Prompt Engineering 
-#### - (if necessary) Precompute the Modality Tokens of the Training Sets
-MissRAG retrieves the top-k most similar prototypes from the previously constructed pool, using the available modalities as queries. In OneLLM and ChatBridge, modality tokens for audio and video inputs have a fixed length; therefore, to avoid redundant computation of these tokens for retrieved prototypes, we precompute them for the entire training set and store them in .h5 files. In contrast, VideoLLaMA 2 produces audio and video representations of variable length, which necessitates computing them at run time. 
+To use the full dataset, you should load all chunks sequentially and concatenate them along the first dimension:
 
+```python
+import glob
+import numpy as np
+import h5py
+
+chunk_paths = sorted(glob.glob("train_tokens_*.h5"))
+
+video, audio, text, ids = [], [], [], []
+
+for path in chunk_paths:
+    with h5py.File(path, "r") as h5f:
+        video.append(h5f["video"][:])
+        audio.append(h5f["audio"][:])
+        text.append(h5f["text"][:])
+        ids.append(h5f["ids"][:])
+
+train_video_tokens = np.concatenate(video, axis=0)
+train_audio_tokens = np.concatenate(audio, axis=0)
+train_text_tokens  = np.concatenate(text, axis=0)
+train_ids          = np.concatenate(ids, axis=0)
+```
+
+⚠️ Important
+Make sure to load the chunks in sorted order (e.g., *_000.h5, *_001.h5, ...) to preserve correct alignment across modalities.
+
+
+### 🔍 Retrieval-Augmented Generation (RAG) + Prompt Engineering
 #### - Apply MissRAG to the MLLMs
-To apply our MissRAG framework to OneLLM, ChatBridge and VideoLLaMA 2, please consult the respective README files for detailed instructions.
+To apply our MissRAG framework to OneLLM, ChatBridge and VideoLLaMA 2,please refer to the respective README files for detailed instructions:
 - [OneLLM](OneLLM/README.md)
 - [ChatBridge](ChatBridge/README.md)
 - [VideoLLaMA 2](VideoLLaMA2/README.md)
 
 #### - Evaluate the answers
 Refer to the `answer_mapping/` folder to evaluate the answers generated by the MLLMs. 
-Specifically, run `answer_mapping/eval_music_avqa.py` script to evaluate Music AVQA predictions, `answer_mapping/caption_eval.py` to evaluate Valor and CharadesEGO captions and `answer_mapping/eval_MOSI_multiple_XOR.py`, `answer_mapping/eval_MOSEI_multiple_XOR.py`to evaluate MOSI and MOSEI predictions. Before running, set the path in the scripts to your result file.  
+Specifically:
+- `answer_mapping/eval_music_avqa.py` for Music AVQA
+- `answer_mapping/caption_eval.py` for Valor and CharadesEGO
+- `answer_mapping/eval_MOSI_multiple_XOR.py` and `answer_mapping/eval_MOSEI_multiple_XOR.py` for MOSI and MOSEI 
+
+### 🧪 (Optional) Computing Modality Pools and Tokens
+#### Creation of the Modality Pools
+Create the pool of training-set-derived prototypes with [ImageBind](https://github.com/facebookresearch/ImageBind) as contrastive embedder. Please refer to the [Evaluation Guide](docs/Prototype_Guide.md) for more details about how to create the prototypes.  
+
+#### - (if necessary) Precompute the Modality Tokens of the Training Sets
+MissRAG retrieves the top-k most similar prototypes from the previously constructed pool, using the available modalities as queries. In OneLLM and ChatBridge, modality tokens for audio and video inputs have a fixed length; therefore, to avoid redundant computation of these tokens for retrieved prototypes, we precompute them for the entire training set and store them in .h5 files. In contrast, VideoLLaMA 2 produces audio and video representations of variable length, which necessitates computing them at run time. 
 
 ## 📚 References
-* [ChatBridge: Bridging Modalities with Large Language Model as a Language Catalyst](https://github.com/joez17/ChatBridge)
+* [ChatBridge: Bridging Modalities with Large Language Model as a Language Catalyst](https://github.com/CASIA-IVA-Lab/ChatBridge)
 * [OneLLM: One Framework to Align All Modalities with Language](https://github.com/csuhan/onellm)
 * [VideoLLaMA 2: Advancing Spatial-Temporal Modeling and Audio Understanding in Video-LLMs](https://github.com/DAMO-NLP-SG/VideoLLaMA2)
 * [ImageBind: One Embedding Space To Bind Them Al](https://github.com/facebookresearch/ImageBind)

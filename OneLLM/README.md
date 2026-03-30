@@ -10,77 +10,6 @@
  (UPM) and an LLM.</em></figcaption>
 </figure>
 
-## Precompute the Modality Tokens of the Training Set
-Create the modality tokens by running the following scripts which save them as `.h5` files inside the specified folder `answer_path/`.
-
-### Music AVQA:
-```bash
-python prototypes/collect_modality_tokens_music_avqa_SF.py
-  --pretrained_path <PATH> \        # Path to the checkpoint
-  --data_path <PATH> \              # Path to the train annotation file
-  --root <PATH> \                   # Path to the audio/video files
-  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
-  --batch_size <BATCH_SIZE>  
-```
-
-### Valor:
-```bash
-python prototypes/collect_modality_tokens_valor_SF.py
-  --pretrained_path <PATH> \        # Path to the checkpoint
-  --data_path <PATH> \              # Path to the train annotation file
-  --root <PATH> \                   # Path to the audio/video files
-  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
-  --batch_size <BATCH_SIZE>  
-```
-
-### CharadesEGO:
-```bash
-python prototypes/collect_modality_tokens_charadesego_SF.py
-  --pretrained_path <PATH> \         # Path to the checkpoint
-  --data_path <PATH> \               # Path to the train annotation file
-  --video_path <VIDEO_PATH> \        # Path to the video files
-  --audio_path <AUDIO_PATH> \        # Path to the audio files             
-  --answer_path <OUTPUT_PATH> \      # Directory for saving .pt files  
-  --batch_size <BATCH_SIZE>
-```
-
-### MOSI:
-```bash
-python prototypes/collect_modality_tokens_MOSI_SF.py
-  --pretrained_path <PATH> \        # Path to the checkpoint
-  --data_path <PATH> \              # Path to the train annotation file
-  --root <PATH> \                   # Path to the dataset
-  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
-  --batch_size <BATCH_SIZE>  
-```
-
-### MOSEI:
-```bash
-python prototypes/collect_modality_tokens_MOSEI_SF.py
-  --pretrained_path <PATH> \        # Path to the checkpoint
-  --data_path <PATH> \              # Path to the train annotation file
-  --root <PATH> \                   # Path to the dataset
-  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
-  --batch_size <BATCH_SIZE>  
-```
-
-## Create the `.h5` files
-Create the `.h5` files of Music AVQA by running:
-```bash
-python prototypes/read_modality_tokens_music.py
-```
-
-Create the `.h5` files of Valor and CharadesEGO by running:
-```bash
-python prototypes/read_modality_tokens.py
-```
-
-Create the `.h5` files of MOSI and MOSEI by running:
-```bash
-python prototypes/read_modality_tokens_mosi.py
-```
-setting in the python files the correct dataset and the `data_dir` parameter which correspond to the `answer_path` previously used for the creation of the dataset modality tokens. 
-
 ## MissRAG+Prompt Engineering
 Our MissRAG framework consists of a prototypes retrieval (PR) system, empowered with a modality-aware prompt engineering strategy (PE). Evaluate it on OneLLM by running the following scripts.
 
@@ -246,6 +175,79 @@ python audiovideo_sentimentAnalysis_MOSEI.py
   --missing_prompt \                      # Flag to use PE technique 
   --user_command_classification <PROMPT>  # Textual human prompt given to the model  
 ```
+
+## (Optional) Computing Modality Tokens
+### Precompute the Modality Tokens of the Training Set
+Create the modality tokens by running the following scripts which save them as `.h5` files inside the specified folder `answer_path/`.
+
+#### Music AVQA:
+```bash
+python prototypes/collect_modality_tokens_music_avqa_SF.py
+  --pretrained_path <PATH> \        # Path to the checkpoint
+  --data_path <PATH> \              # Path to the train annotation file
+  --root <PATH> \                   # Path to the audio/video files
+  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
+  --batch_size <BATCH_SIZE>  
+```
+
+#### Valor:
+```bash
+python prototypes/collect_modality_tokens_valor_SF.py
+  --pretrained_path <PATH> \        # Path to the checkpoint
+  --data_path <PATH> \              # Path to the train annotation file
+  --root <PATH> \                   # Path to the audio/video files
+  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
+  --batch_size <BATCH_SIZE>  
+```
+
+#### CharadesEGO:
+```bash
+python prototypes/collect_modality_tokens_charadesego_SF.py
+  --pretrained_path <PATH> \         # Path to the checkpoint
+  --data_path <PATH> \               # Path to the train annotation file
+  --video_path <VIDEO_PATH> \        # Path to the video files
+  --audio_path <AUDIO_PATH> \        # Path to the audio files             
+  --answer_path <OUTPUT_PATH> \      # Directory for saving .pt files  
+  --batch_size <BATCH_SIZE>
+```
+
+#### MOSI:
+```bash
+python prototypes/collect_modality_tokens_MOSI_SF.py
+  --pretrained_path <PATH> \        # Path to the checkpoint
+  --data_path <PATH> \              # Path to the train annotation file
+  --root <PATH> \                   # Path to the dataset
+  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
+  --batch_size <BATCH_SIZE>  
+```
+
+#### MOSEI:
+```bash
+python prototypes/collect_modality_tokens_MOSEI_SF.py
+  --pretrained_path <PATH> \        # Path to the checkpoint
+  --data_path <PATH> \              # Path to the train annotation file
+  --root <PATH> \                   # Path to the dataset
+  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
+  --batch_size <BATCH_SIZE>  
+```
+
+### Create the `.h5` files
+Create the `.h5` files of Music AVQA by running:
+```bash
+python prototypes/read_modality_tokens_music.py
+```
+
+Create the `.h5` files of Valor and CharadesEGO by running:
+```bash
+python prototypes/read_modality_tokens.py
+```
+
+Create the `.h5` files of MOSI and MOSEI by running:
+```bash
+python prototypes/read_modality_tokens_mosi.py
+```
+setting in the python files the correct dataset and the `data_dir` parameter which correspond to the `answer_path` previously used for the creation of the dataset modality tokens. 
+
 
 ## MissRAG is Not Sensible to the Task
 Run the following scripts to test MissRAG with the prototype pool extended to the training sets of all datasets, to demonstrate our method is not restricted or sensitive to the tasks. Use the same arguments described before for the PE+PR evaluation and set the paths of the other datasets in the scripts.

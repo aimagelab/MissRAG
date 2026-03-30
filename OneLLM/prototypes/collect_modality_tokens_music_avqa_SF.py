@@ -42,6 +42,7 @@ class AVQADataset(Dataset):
         video_id = str(data['video_id'])
         video_name = video_id + '.mp4'
         audio_name = video_id + '.mp3'
+        
         image_path = os.path.join(self.root, video_name)
         audio_path = os.path.join(self.root, audio_name)
 
@@ -52,9 +53,10 @@ class AVQADataset(Dataset):
         if not os.path.isfile(image_path):
             print("File {} does not exist".format(image_path))
             raise Exception
-        
-        image = load_video(image_path)
+
         audio = load_audio(audio_path)
+        image = load_video(image_path)
+        #audio = load_audio(audio_path)
 
         question_id = data['question_id']
         video_id = data['video_id']

@@ -11,6 +11,14 @@ try:
 except ImportError:
     BICUBIC = Image.BICUBIC
 
+available_backends = torchaudio.list_audio_backends()
+print(f"[AUDIO] available backends: {available_backends}", flush=True)
+
+if "soundfile" in available_backends:
+    torchaudio.set_audio_backend("soundfile")
+
+print(f"[AUDIO] selected backend: {torchaudio.get_audio_backend()}", flush=True)
+
 T_random_resized_crop = transforms.Compose([
     transforms.RandomResizedCrop(size=(224, 224), scale=(0.9, 1.0), ratio=(0.75, 1.3333), interpolation=BICUBIC,
                                  antialias=None),  # 3 is bicubic
@@ -64,7 +72,12 @@ def pc_norm(pc):
 
 
 def make_audio_features(wav_name, mel_bins=128, target_length=1024, aug=False):
-    waveform, sr = torchaudio.load(wav_name)
+    try:
+        waveform, sr = torchaudio.load(wav_name)
+    except Exception as e:
+        print(f"[AUDIO LOAD ERROR] {wav_name} -> {e}")
+        raise
+        
     # assert sr == 16000, 'input audio sampling rate must be 16kHz'
     if sr != 16000:
         trans = torchaudio.transforms.Resample(sr, 16000)

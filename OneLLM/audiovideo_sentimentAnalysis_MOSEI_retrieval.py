@@ -354,6 +354,7 @@ if __name__ == "__main__":
             train_audio_tokens = h5f['audio'][:]  # Shape: (batch_size, 30, 4096)
             train_text_tokens =  h5f['text'][:]  # Shape: (batch_size, 30, 4096)
             train_ids          = h5f['ids'][:]    # Shape: (batch_size,)
+            
     train_batch_size = train_video_tokens.shape[0]
     print("train_video_tokens: ", train_video_tokens.shape)
     print("train_audio_tokens: ", train_audio_tokens.shape)

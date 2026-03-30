@@ -9,86 +9,6 @@
  <figcaption><em>Model architecture of ChatBridge. It consists of multiple modal-specific encoders, perceiver modules and an LLM.</em></figcaption>
 </figure>
 
-## Precompute the Modality Tokens of the Training Set
-Create the modality tokens by running the following scripts which save them as `.h5` files inside the specified folder `answer_path/`.
-
-### Music AVQA:
-```bash
-python prototypes/collect_modality_tokens_music_avqa.py
-  --cfg_path <PATH> \               # Path to the checkpoint
-  --data_path <PATH> \              # Path to the train annotation file
-  --root <PATH> \                   # Path to the audio/video files
-  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
-  --batch_size <BATCH_SIZE>  
-```
-
-### Valor:
-```bash
-python prototypes/collect_modality_tokens_valor.py
-  --cfg_path <PATH> \               # Path to the checkpoint
-  --data_path <PATH> \              # Path to the train annotation file
-  --root <PATH> \                   # Path to the audio/video files
-  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
-  --batch_size <BATCH_SIZE>  
-```
-
-### CharadesEGO:
-```bash
-python prototypes/collect_modality_tokens_charadesego.py
-  --cfg_path <PATH> \               # Path to the checkpoint
-  --data_path <PATH> \               # Path to the train annotation file
-  --video_path <VIDEO_PATH> \        # Path to the video files
-  --audio_path <AUDIO_PATH> \        # Path to the audio files             
-  --answer_path <OUTPUT_PATH> \      # Directory for saving .pt files  
-  --batch_size <BATCH_SIZE>
-```
-
-### MOSI:
-```bash
-python prototypes/collect_modality_tokens_MOSI.py
-  --cfg_path <PATH> \               # Path to the checkpoint
-  --data_path <PATH> \              # Path to the train annotation file
-  --root <PATH> \                   # Path to the dataset
-  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
-  --batch_size <BATCH_SIZE>  
-```
-
-### MOSEI:
-```bash
-python prototypes/collect_modality_tokens_MOSEI.py
-  --cfg_path <PATH> \               # Path to the checkpoint
-  --data_path <PATH> \              # Path to the train annotation file
-  --root <PATH> \                   # Path to the dataset
-  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
-  --batch_size <BATCH_SIZE>  
-```
-
-## Create the `.h5` files
-Create the `.h5` files of Music AVQA by running:
-```bash
-python prototypes/read_modality_tokens_music.py
-```
-
-Create the `.h5` files of Valor by running:
-```bash
-python prototypes/read_modality_tokens_valor.py
-```
-
-Create the `.h5` files of CharadesEGO by running:
-```bash
-python prototypes/read_modality_tokens_charadesego.py
-```
-
-Create the `.h5` files of MOSI by running:
-```bash
-python prototypes/read_modality_tokens_MOSI.py
-```
-
-Create the `.h5` files of MOSEI by running:
-```bash
-python prototypes/read_modality_tokens_MOSEI.py
-```
-
 ## MissRAG+Prompt Engineering
 Our MissRAG framework consists of a prototypes retrieval (PR) system, empowered with a modality-aware prompt engineering strategy (PE). Evaluate it on OneLLM by running the following scripts.
 
@@ -189,7 +109,7 @@ python charadesego_eval.py
   --prompt_template <PROMPT>              # Textual human prompt 
 ```
 
-#### MOSI
+### MOSI
 ```bash
 python MOSI_eval_retrieval.py
   --cfg_path <PATH> \                     # Path to the checkpoint
@@ -221,7 +141,7 @@ python MOSI_eval.py
   --prompt_template <PROMPT>              # Textual human prompt given to the model  
 ```
 
-#### MOSEI
+### MOSEI
 ```bash
 python MOSEI_eval_retrieval.py
   --cfg_path <PATH> \                     # Path to the checkpoint
@@ -251,4 +171,86 @@ python MOSEI_eval.py
   --batch_size <BATCH_SIZE> \  
   --missing_prompt True \                 # Boolean to use PE technique 
   --prompt_template <PROMPT>              # Textual human prompt given to the model  
+```
+
+
+## (Optional) Computing Modality Tokens
+### Precompute the Modality Tokens of the Training Set
+Create the modality tokens by running the following scripts which save them as `.h5` files inside the specified folder `answer_path/`.
+
+#### Music AVQA:
+```bash
+python prototypes/collect_modality_tokens_music_avqa.py
+  --cfg_path <PATH> \               # Path to the checkpoint
+  --data_path <PATH> \              # Path to the train annotation file
+  --root <PATH> \                   # Path to the audio/video files
+  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
+  --batch_size <BATCH_SIZE>  
+```
+
+#### Valor:
+```bash
+python prototypes/collect_modality_tokens_valor.py
+  --cfg_path <PATH> \               # Path to the checkpoint
+  --data_path <PATH> \              # Path to the train annotation file
+  --root <PATH> \                   # Path to the audio/video files
+  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
+  --batch_size <BATCH_SIZE>  
+```
+
+#### CharadesEGO:
+```bash
+python prototypes/collect_modality_tokens_charadesego.py
+  --cfg_path <PATH> \               # Path to the checkpoint
+  --data_path <PATH> \               # Path to the train annotation file
+  --video_path <VIDEO_PATH> \        # Path to the video files
+  --audio_path <AUDIO_PATH> \        # Path to the audio files             
+  --answer_path <OUTPUT_PATH> \      # Directory for saving .pt files  
+  --batch_size <BATCH_SIZE>
+```
+
+#### MOSI:
+```bash
+python prototypes/collect_modality_tokens_MOSI.py
+  --cfg_path <PATH> \               # Path to the checkpoint
+  --data_path <PATH> \              # Path to the train annotation file
+  --root <PATH> \                   # Path to the dataset
+  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
+  --batch_size <BATCH_SIZE>  
+```
+
+#### MOSEI:
+```bash
+python prototypes/collect_modality_tokens_MOSEI.py
+  --cfg_path <PATH> \               # Path to the checkpoint
+  --data_path <PATH> \              # Path to the train annotation file
+  --root <PATH> \                   # Path to the dataset
+  --answer_path <OUTPUT_PATH> \     # Directory for saving .pt files  
+  --batch_size <BATCH_SIZE>  
+```
+
+### Create the `.h5` files
+Create the `.h5` files of Music AVQA by running:
+```bash
+python prototypes/read_modality_tokens_music.py
+```
+
+Create the `.h5` files of Valor by running:
+```bash
+python prototypes/read_modality_tokens_valor.py
+```
+
+Create the `.h5` files of CharadesEGO by running:
+```bash
+python prototypes/read_modality_tokens_charadesego.py
+```
+
+Create the `.h5` files of MOSI by running:
+```bash
+python prototypes/read_modality_tokens_MOSI.py
+```
+
+Create the `.h5` files of MOSEI by running:
+```bash
+python prototypes/read_modality_tokens_MOSEI.py
 ```

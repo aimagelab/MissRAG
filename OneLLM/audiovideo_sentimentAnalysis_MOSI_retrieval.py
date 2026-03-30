@@ -17,7 +17,6 @@ from data import video_utils
 from data.data_utils import make_audio_features
 import argparse
 from util.misc import get_random_free_port
-from typing import List
 import faiss
 import h5py
 import pandas as pd
