@@ -140,7 +140,7 @@ python audiovideo_sentimentAnalysis_MOSI.py
   --use_text_modality True \              # Boolean to use text modality
   --answer_path <OUTPUT_PATH> \           # json file with the answers 
   --batch_size <BATCH_SIZE> \  
-  --prompt_template <PROMPT>              # Textual human prompt given to the model  
+  --user_command <PROMPT>                 # Textual human prompt given to the model  
 ```
 
 #### MOSEI
@@ -158,7 +158,7 @@ python audiovideo_sentimentAnalysis_MOSEI_retrieval.py
   --answer_path <OUTPUT_PATH> \           # json file with the answers 
   --batch_size <BATCH_SIZE> \  
   --prototype_prompt \                    # Flag to use PE technique 
-  --prompt_template <PROMPT>              # Textual human prompt 
+  --user_command <PROMPT>                 # Textual human prompt 
 ```
 
 Test the missing modality scenatios without PE+PR by running the following script:
@@ -172,5 +172,5 @@ python audiovideo_sentimentAnalysis_MOSEI.py
   --use_text_modality True \              # Boolean to use text modality
   --answer_path <OUTPUT_PATH> \           # json file with the answers 
   --batch_size <BATCH_SIZE> \   
-  --prompt_template <PROMPT>              # Textual human prompt given to the model  
+  --user_command <PROMPT>                 # Textual human prompt given to the model  
 ```
