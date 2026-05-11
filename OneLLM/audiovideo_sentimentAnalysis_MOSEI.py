@@ -231,7 +231,6 @@ if __name__ == "__main__":
     parser.add_argument(
         "--answer_path", type=str, default="/path/to/MissRAG2025/results/eval_sentimentAnalysis_MOSEI.json", help="Path to save the answer"
     )
-    parser.add_argument("--debug", action='store_true', help="debug, don't use model but fake data")
     args = parser.parse_args()  
     
     os.makedirs(os.path.dirname(args.answer_path), exist_ok=True) 
