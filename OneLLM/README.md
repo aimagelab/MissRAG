@@ -117,7 +117,7 @@ python audiovideo_cap_charadesego.py
 python audiovideo_sentimentAnalysis_MOSI_retrieval.py
   --pretrained_path <PATH> \              # Path to the checkpoint
   --root <PATH> \                         # Path to the dataset
-  --modal video audio \                   # List of available modalities
+  --modal audio video \                   # List of available modalities
   --use_text_modality \                   # Flag to use text modality
   --task_modals audio video \             # List of task modalities
   --train_modality_tokens_path <PATH> \   # Path to the extracted modality tokens
@@ -135,8 +135,8 @@ Test without PR by running the following script:
 python audiovideo_sentimentAnalysis_MOSI.py
   --pretrained_path <PATH> \              # Path to the checkpoint
   --root <PATH> \                         # Path to the audio/video files
-  --modal video audio \                   # List of available modalities
-  --task_modals video audio text \        # List of task modalities
+  --modal audio video \                   # List of available modalities
+  --task_modals audio video text \        # List of task modalities
   --use_text_modality \                   # Flag to use text modality
   --answer_path <OUTPUT_PATH> \           # json file with the answers 
   --batch_size <BATCH_SIZE> \  
@@ -149,9 +149,9 @@ python audiovideo_sentimentAnalysis_MOSI.py
 python audiovideo_sentimentAnalysis_MOSEI_retrieval.py
   --pretrained_path <PATH> \              # Path to the checkpoint
   --root <PATH> \                         # Path to the dataset
-  --modal video audio \                   # List of available modalities
+  --modal audio video \                   # List of available modalities
   --use_text_modality \                   # Flag to use text modality
-  --task_modals audio video \             # List of task modalities
+  --task_modals audio video text \             # List of task modalities
   --train_modality_tokens_path <PATH> \   # Path to the extracted modality tokens
   --test_IB_embeddings_path \             # Path to the extracted ImageBind test embeddings
   --train_IB_embeddings_path \            # Path to the extracted ImageBind train embeddings
@@ -167,8 +167,8 @@ Test without PR by running the following script:
 python audiovideo_sentimentAnalysis_MOSEI.py
   --pretrained_path <PATH> \              # Path to the checkpoint
   --root <PATH> \                         # Path to the audio/video files
-  --modal video audio \                   # List of available modalities
-  --task_modals video audio text \        # List of task modalities
+  --modal audio video \                   # List of available modalities
+  --task_modals audio video text \        # List of task modalities
   --use_text_modality \                   # Flag to use text modality
   --answer_path <OUTPUT_PATH> \           # json file with the answers 
   --batch_size <BATCH_SIZE> \  
