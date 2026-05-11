@@ -112,14 +112,14 @@ python audiovideo_cap_charadesego.py
   --prompt_template <PROMPT>              # Textual human prompt 
 ```
 
-#### MOSI
+### MOSI
 ```bash
 python audiovideo_sentimentAnalysis_MOSI_retrieval.py
   --pretrained_path <PATH> \              # Path to the checkpoint
   --root <PATH> \                         # Path to the dataset
   --modal audio video \                   # List of available modalities
   --use_text_modality \                   # Flag to use text modality
-  --task_modals audio video \             # List of task modalities
+  --task_modals audio video text \        # List of task modalities
   --train_modality_tokens_path <PATH> \   # Path to the extracted modality tokens
   --test_IB_embeddings_path \             # Path to the extracted ImageBind test embeddings
   --train_IB_embeddings_path \            # Path to the extracted ImageBind train embeddings
@@ -144,14 +144,14 @@ python audiovideo_sentimentAnalysis_MOSI.py
   --user_command_classification <PROMPT>  # Textual human prompt given to the model  
 ```
 
-#### MOSEI
+### MOSEI
 ```bash
 python audiovideo_sentimentAnalysis_MOSEI_retrieval.py
   --pretrained_path <PATH> \              # Path to the checkpoint
   --root <PATH> \                         # Path to the dataset
   --modal audio video \                   # List of available modalities
   --use_text_modality \                   # Flag to use text modality
-  --task_modals audio video text \             # List of task modalities
+  --task_modals audio video text \        # List of task modalities
   --train_modality_tokens_path <PATH> \   # Path to the extracted modality tokens
   --test_IB_embeddings_path \             # Path to the extracted ImageBind test embeddings
   --train_IB_embeddings_path \            # Path to the extracted ImageBind train embeddings

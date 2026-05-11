@@ -210,7 +210,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--user_command_classification",
         type=str,
-        default="""Given the class set ["Positive", "Neutral", "Negative"] and considering the emotional tone, facial expressions, and dialogue, what is the sentiment of this video?.""",
+        default="""Given the class set ["Positive", "Neutral", "Negative"] What is the sentiment of this video?""",
         help='Template for the prompt'
     )
     parser.add_argument(
